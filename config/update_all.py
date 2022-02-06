@@ -1,6 +1,7 @@
 #!/usr/local/bin/python
 
-#coding :utf-8
+# -*- coding: utf-8 -*-
+
 #
 # The MIT License (MIT)
 #
@@ -23,29 +24,43 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-
 """对应于save all"""
 
-from QUANTAXIS.QASU.main import (QA_SU_save_etf_day, QA_SU_save_etf_min,
-                                 QA_SU_save_financialfiles,
-                                 QA_SU_save_index_day, QA_SU_save_index_min,
-                                 QA_SU_save_stock_block, QA_SU_save_stock_day,
-                                 QA_SU_save_stock_info,
-                                 QA_SU_save_stock_info_tushare,
-                                 QA_SU_save_stock_list, QA_SU_save_stock_min,
-                                 QA_SU_save_stock_xdxr)
-from QUANTAXIS.QASU.save_binance import (QA_SU_save_binance_symbol,
-                                       QA_SU_save_binance_1hour,
-                                       QA_SU_save_binance_1day, 
-                                       QA_SU_save_binance_1min, 
-                                       QA_SU_save_binance)
-from QUANTAXIS.QASU.save_bitmex import (QA_SU_save_bitmex_symbol, 
-                                         QA_SU_save_bitmex_day)
-from QUANTAXIS.QASU.save_huobi import (QA_SU_save_huobi_symbol,
-                                       QA_SU_save_huobi_1hour,
-                                       QA_SU_save_huobi_1day, 
-                                       QA_SU_save_huobi_1min, 
-                                       QA_SU_save_huobi)
+from QUANTAXIS.QASU.main import (
+    QA_SU_crawl_eastmoney,
+    QA_SU_save_etf_day,
+    QA_SU_save_etf_min,
+    QA_SU_save_financialfiles,
+    QA_SU_save_index_day,
+    QA_SU_save_index_min,
+    QA_SU_save_stock_block,
+    QA_SU_save_stock_day,
+    QA_SU_save_stock_info,
+    QA_SU_save_stock_info_tushare,
+    QA_SU_save_stock_list,
+    QA_SU_save_stock_min,
+    QA_SU_save_stock_xdxr,
+    QA_SU_save_stock_transaction,
+    QA_SU_save_index_transaction,
+)
+from QUANTAXIS.QASU.save_binance import (
+    QA_SU_save_binance_symbol,
+    QA_SU_save_binance_1hour,
+    QA_SU_save_binance_1day,
+    QA_SU_save_binance_1min,
+    QA_SU_save_binance
+)
+from QUANTAXIS.QASU.save_bitmex import (
+    QA_SU_save_bitmex_symbol,
+    QA_SU_save_bitmex_day
+)
+from QUANTAXIS.QASU.save_huobi import (
+    QA_SU_save_huobi_symbol,
+    QA_SU_save_huobi_1hour,
+    QA_SU_save_huobi_1day,
+    QA_SU_save_huobi_1min,
+    QA_SU_save_huobi
+)
 
 QA_SU_save_stock_day('tdx')
 QA_SU_save_stock_xdxr('tdx')
@@ -56,4 +71,6 @@ QA_SU_save_index_day('tdx')
 # QA_SU_save_etf_min('tdx')
 QA_SU_save_stock_list('tdx')
 QA_SU_save_stock_block('tdx')
-# QA_SU_save_stock_info('tdx')
+QA_SU_save_stock_info('tdx')
+QA_SU_save_stock_transaction('tdx')
+QA_SU_save_index_transaction('tdx')
