@@ -1851,6 +1851,7 @@ def QA_fetch_get_stock_block(ip=None, port=None):
                          ).assign(type="gn"),
                 api.to_df(api.get_and_parse_block_info("block_zs.dat") # 指数板块
                          ).assign(type="zs"),
+
                                                                        # api.to_df(api.get_and_parse_block_info("hkblock.dat" )).assign(type="hk"),
                                                                        # api.to_df(api.get_and_parse_block_info("jjblock.dat" )).assign(type="jj"),
                                                                        # api.to_df(api.get_and_parse_block_info("mgblock.dat" )).assign(type="mg"),
@@ -1860,15 +1861,17 @@ def QA_fetch_get_stock_block(ip=None, port=None):
             ],
             sort=False
         )
-        incon_content = api.get_block_dat_ver_up("incon.dat").decode(
-            "GB18030"
-        )                                                              # tdx industry file 行业代码名字对照表文件, 有#号分段
 
-    if incon_content and len(incon_content) > 100:
-        incon_block_info = _parse_block_name_info(incon_content)
-    else:
-        incon_block_info = None # 如果api未能获得 incon.dat, 设置为None 则从zhb.zip文件中解压获得
+        #     incon_content = api.get_block_dat_ver_up("incon.dat").decode(
+        #         "GB18030"
+        #     )                                                              # tdx industry file 行业代码名字对照表文件, 有#号分段
 
+    # if incon_content and len(incon_content) > 100:
+    #     incon_block_info = _parse_block_name_info(incon_content)
+    # else:
+    #     incon_block_info = None # 如果api未能获得 incon.dat, 设置为None 则从zhb.zip文件中解压获得
+
+    incon_block_info = None
     df = QA_fetch_get_tdx_industry(incon_block_info=incon_block_info)
     if len(data) > 10:
         data = data.assign(source='tdx').\
